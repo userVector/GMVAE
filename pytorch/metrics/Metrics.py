@@ -28,5 +28,7 @@ class Metrics:
 
   def nmi(self, Y_pred, Y):
     Y_pred, Y = np.array(Y_pred), np.array(Y)
+    print(Y_pred.size)
+    print(Y.size)
     assert Y_pred.size == Y.size
     return normalized_mutual_info_score(Y_pred, Y, average_method='arithmetic')
