@@ -156,8 +156,8 @@ class GMVAE:
     predicted_labels = torch.cat(predicted_labels_list, dim=0).cpu().numpy()
 
     # compute metrics
-    accuracy = 100.0 #* self.metrics.cluster_acc(predicted_labels, true_labels)
-    nmi = 100.0 #* self.metrics.nmi(predicted_labels, true_labels)
+    accuracy = 100.0 * self.metrics.cluster_acc(predicted_labels, true_labels)
+    nmi = 100.0 * self.metrics.nmi(predicted_labels, true_labels)
 
     return total_loss, recon_loss, gauss_loss, cat_loss, accuracy, nmi
 
