@@ -17,6 +17,8 @@ class Metrics:
   # VaDE (Variational Deep Embedding:A Generative Approach to Clustering)
   def cluster_acc(self, Y_pred, Y):
     Y_pred, Y = np.array(Y_pred), np.array(Y)
+    print(Y_pred.size)
+    print(Y.size)
     assert Y_pred.size == Y.size
     D = max(Y_pred.max(), Y.max())+1
     w = np.zeros((D,D), dtype=np.int64)
@@ -28,7 +30,5 @@ class Metrics:
 
   def nmi(self, Y_pred, Y):
     Y_pred, Y = np.array(Y_pred), np.array(Y)
-    print(Y_pred.size)
-    print(Y.size)
     assert Y_pred.size == Y.size
     return normalized_mutual_info_score(Y_pred, Y, average_method='arithmetic')
